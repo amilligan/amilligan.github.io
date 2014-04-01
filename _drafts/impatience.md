@@ -28,7 +28,7 @@ Now the teller has to muck about behind the teller window for a bit.  Perhaps th
 });
 ```
 
-Eventually the teller should return to the window and either hand cash to the customer, or notify the customer that the account has insufficient funds.  Since the interaction is asynchronous, the teller will likely respond to the customer via delegate methods.  Now our teller object is a mock, so we don't expect it to really do anything, but we do want to test the behavior of the customer when the transaction completes:
+Eventually the teller should return to the window and either hand cash to the customer, or notify the customer that the account has insufficient funds.  Since the interaction is asynchronous, the teller could respond to the customer via delegate methods.  Now our teller object is a mock, so we don't expect it to really do anything, but we do want to test the behavior of the customer when the transaction completes:
 
 ```objc
 describe(@"when the withdrawal succeeds", ^{
@@ -49,7 +49,7 @@ describe(@"when the withdrawal fails", ^{
   });
 
   it(@"should weep inconsolably", ^{
-    customer.isConsolable should_not be_truthy;
+    customer should_not be_consolable;
   });
 });
 ```
@@ -61,7 +61,7 @@ This is a fairly straightforward example of unit testing a class with a mock obj
 3. Wait, displaying some form of activity indicator
 4. Handle success or failure response
 
-Tragically, albeit unsurprisingly, Apple's new(ish) `NSURLSession` makes it practically impossible to write unit tests for network activity that run quickly and deterministically.  Like with the interaction with the Teller, we don't want to make actual network requests[1], but instead interact with a stubbed version of the network infrastructure.  How, then, to stub the network infrastructure?
+Tragically, and unsurprisingly, Apple's new(ish) `NSURLSession` makes it practically impossible to write unit tests for network activity that run quickly and deterministically.  Like with the interaction with the Teller, we don't want to make actual network requests[^1], but instead interact with a stubbed version of the network infrastructure.  How, then, to stub the network infrastructure?
 
 We could try reopening `NSURLSessionDataTask` in the test target.  Code that is invoking a network request first instantiates a task object, then calls `resume` to start the request; we can reimplement that method to store the provided `NSURLRequest` for later interrogation.  Unfortunately, instantiated tasks are not actually instances of `NSURLSessionDataTask`, but `__NSCFURLSessionDataTask`; it's a class cluster.  Since we don't have access to the "private" implementation class, we can't reimplement the actual `resume` method.  Strike one.
 
@@ -76,5 +76,5 @@ So we create an `NSURLProtocol` subclass that always returns `NO` in the `+canIn
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
-[1] Sure, lots of people have written about connecting to a proxy server and testing that way.  That's nice for manual testing, but unit tests should run without external dependencies of any kind; they should emphasize speed and determinism above all else (except, perhaps, correctness).
+1: Sure, lots of people have written about connecting to a proxy server and testing that way.  That's nice for manual testing, but unit tests should run without external dependencies of any kind; they should emphasize speed and determinism above all else (except, perhaps, correctness).
 
