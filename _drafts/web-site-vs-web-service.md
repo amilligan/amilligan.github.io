@@ -1,5 +1,6 @@
-*After going their separate ways for a time, Achilles and the Tortoise meet for dinner in New York's West Village.*
+*Achilles (a Greek warrior, the fleetest of foot of all mortals) and a Tortoise have met for dinner at a busy restaurant in New York's West Village.  They're sitting at a small table, near the end of the restaurant, with one empty chair.*
 
-*Tortoise:*  Thank you for meeting with me old friend.  What have you been up to?
-*Achilles:*  Oh, this and that.  I heard you were doing quite well on the MMA circuit; your shell must have come in quite handy.
-*Tortoise:*  Indeed.  I enjoyed it immensely, but it did involve quite a bit of travel.  I found myself with a lot of time to think, and I spent much of that time recalling the many fascinating conversations you and I have had over the years.  It occurred to me that we should create a 
+*Tortoise:*  It has been quite some time, old friend.  Thank you for meeting with me on such short notice.  I should have let you know I would be in town sooner, but
+*Achilles:*  Not a problem, Mr. T;  I had some errands to run this evening, but as you may imagine I was able to complete them very quickly.
+*Achilles:*  Oh, this and that.  I heard you were doing quite well on the MMA circuit; your shell must come in quite handy in that pursuit.
+*Tortoise:*  Indeed.  I enjoyed it immensely, but it did involve quite a lot of travel, and I found myself
