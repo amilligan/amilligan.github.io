@@ -2,7 +2,7 @@
 layout: post
 title: Exceptions in controller specs
 date: 2014-04-25
-categories: ruby testing
+categories: Rails testing
 ---
 
 When you’re testing a Rails controller, as when testing anything, you want to verify that your controller exhibits the desired behavior given certain conditions.  Rails controller tests make this somewhat difficult by not handling exceptions as the production controller infrastructure would.  You can rectify this situation with only a few lines of code.
